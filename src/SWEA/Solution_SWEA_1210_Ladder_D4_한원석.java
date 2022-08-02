@@ -13,6 +13,8 @@ public class Solution_SWEA_1210_Ladder_D4_한원석 {
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
+		int startX = 0;
+		int startY = 0;
 		for (int testCase = 1; testCase <= 10; testCase++) {
 			int TC = Integer.parseInt(br.readLine());
 			char[][] ladder = new char[100][102];
@@ -20,18 +22,13 @@ public class Solution_SWEA_1210_Ladder_D4_한원석 {
 				String l = br.readLine();
 				for (int j = 1,index = 0; j < ladder.length+1; index += 2,j++) {
 					ladder[i][j] = l.charAt(index);
+					if (l.charAt(index)== '2') {
+						startX = i;
+						startY = j;
+					}
 				}
 			}
-
-				
-			int answer = 0;
-			for (int i = 0; i < ladder.length+2; i++) {
-				if (ladder[99][i] == '2') {
-					answer = search(ladder, 99, i);
-				}
-			}
-			sb.append("#").append(TC).append(" ").append(answer).append("\n");
-			
+			sb.append("#").append(TC).append(" ").append(search(ladder, startX, startY)).append("\n");
 		}
 		System.out.println(sb.toString());
 	}
@@ -40,7 +37,6 @@ public class Solution_SWEA_1210_Ladder_D4_한원석 {
 		if (x==0) {
 			return y-1;
 		}
-		
 		for (int i = 0; i < 3; i++) {
 			int ax = x + dx[i];
 			int ay = y + dy[i];
@@ -49,6 +45,5 @@ public class Solution_SWEA_1210_Ladder_D4_한원석 {
 			return search(ladder, ax, ay);
 		}
 		return 0;
-		
 	}
 }
