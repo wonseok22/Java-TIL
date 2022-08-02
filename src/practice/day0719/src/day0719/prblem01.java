@@ -1,4 +1,4 @@
-package day0719;
+package practice.day0719.src.day0719;
 import java.io.*;  
 import java.util.StringTokenizer;
 public class  prblem01 {  
