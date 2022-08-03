@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 
-public class Solution_SWEA_1954_달팽이숫자_D2 {
+public class Solution_SWEA_1954_달팽이숫자_D2_한원석_113ms {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int TC = Integer.parseInt(br.readLine().trim());
