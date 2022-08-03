@@ -3,27 +3,34 @@ package SWEA;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.concurrent.ForkJoinPool;
 
 public class Solution_SWEA_1288_새로운불면증치료법_D2_한원석 {
+	static int[] c;
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int TC = Integer.parseInt(br.readLine());
 		for (int testCase = 1; testCase <= TC; testCase++) {
 			int N = Integer.parseInt(br.readLine());
-			int check = 0B1111111111;
-			int answer = 0;
-			while (check > 0) {
-				String n = String.valueOf(N);
-				answer ++;
-				for (int i = 0; i < n.length(); i++) {
-					
-					check &= (1 << n.charAt(i) - '0');
-					
+			c = new int[10];
+			int n = N;
+			int answer = 1;
+			while(!check()) {
+				String S = Integer.toString(n);
+				for (int i = 0; i < S.length(); i++) {	
+					c[S.charAt(i)-'0'] = 1;
 				}
-				System.out.println(check);
-				N*=2;
+				answer ++;
+				n +=N;
 			}
-			System.out.println("#" + testCase + " " + answer);
+			System.out.println("#" + testCase + " " + (answer-1)*N);
 		}
+	}
+	private static boolean check() {
+		for (int i : c) {
+			if (i==0) return false;
+		}
+		return true;
 	}
 }
