@@ -20,19 +20,16 @@ public class Main_BOJ_2164_카드2_S4_한원석_76ms {
 		}
 		
 		// 주어진 수가  2이상인 경우
-		/*		
-		 *  2의 제곱수들(등비수열) 의 등비합을 구한다.
-		 *  2^ 19 = 524,288이므로  0 ~ 19 이분탐색 실시
-		 *  2의 i승이 N보다 작고 2의 i+1승이 N보다 크거나 같다면 
-		 *  2 * (N-( 2^i - 1)) 출력
-		 * */
-		
-		int i = 0;
-		while (!((Math.pow(2, i)-1) < N && (Math.pow(2, i+1)-1) >= N)) {
-			i++;
+		// 2^ 19 = 524,288이므로 최대 19번만 확인하면 됩
+
+		int sum = 0;
+		int count = 1;
+		while (sum + count < N) {
+			sum += count;
+			count <<= 1;
 		}
 
-		System.out.println((int)(N - (Math.pow(2,i)-1))*2);
+		System.out.println((N - sum)<<1);
 	}
 }
  
