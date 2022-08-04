@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 
-public class Solution_SWEA_2001_파리퇴치_D2_한원석 {
+public class Solution_SWEA_2001_파리퇴치_D2_한원석_102ms {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int TC = Integer.parseInt(br.readLine());
