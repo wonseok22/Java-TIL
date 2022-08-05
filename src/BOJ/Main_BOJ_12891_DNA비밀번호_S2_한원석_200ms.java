@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
-public class Main_BOJ_12891_DNA비밀번호_S2_한원석 {
+public class Main_BOJ_12891_DNA비밀번호_S2_한원석_200ms {
 	static int S;
 	static int P;
 	static int answer;
