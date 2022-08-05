@@ -23,11 +23,7 @@ public class Solution_SWEA_1208_Flatten_한원석 {
 				MIN = Math.min(MIN, height);
 				MAX = Math.max(MAX, height);
 			}
-			String a = "hello";
-			String b = "World";
-			for (int i = 0; i < 1000000; i++) {
-				a += b;
-			}
+
 			while (MAX > MIN) {
 				if (box[MAX] >= box[MIN]) {
 					if (dump >= box[MIN]) {
