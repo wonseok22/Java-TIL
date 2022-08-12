@@ -61,6 +61,8 @@ public class Solution_SWEA_4012_요리사_한원석_243ms {
 						tmp -= ingredents[j][i];
 					}
 				}
+				
+				
 			}
 			// 정답 최솟값으로 갱신
 			answer = Math.min(answer,Math.abs(tmp));
