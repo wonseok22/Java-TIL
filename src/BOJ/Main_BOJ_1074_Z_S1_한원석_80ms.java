@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main_BOJ_1074_Z_S1_한원석 {
+public class Main_BOJ_1074_Z_S1_한원석_80ms {
 	static int N;
 	static int R;
 	static int C;

@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Main_boj_2839_설탕배달_S4_한원석 {
+public class Main_boj_2839_설탕배달_S4_한원석_80ms {
 	static int N;
 	static int answer;
 	public static void main(String[] args) throws IOException {
