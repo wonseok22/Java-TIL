@@ -22,6 +22,7 @@ public class Main_BOJ_1541_잃어버린괄호_S2_한원석_80ms {
 			}
 			answer += Integer.parseInt(nums[i+1]);
 		}
+		
 		System.out.println(answer);
 		
 	}
