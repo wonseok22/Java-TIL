@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Solution_SWEA_홈방법서비스_한원석 {
-	static int TC, N, M, sum, answer, hCount;
+public class Solution_SWEA_홈방법서비스_한원석_350ms {
+	static int TC, N, M, answer, hCount;
 	static int[] price;
 	static ArrayList<int[]> house;
 	
@@ -33,18 +33,16 @@ public class Solution_SWEA_홈방법서비스_한원석 {
 					if (st.nextToken().equals("1"))house.add(new int[] {i,j}); 
 				}
 			}
-			for (int k = 1; k < 22; k++) {
+			for (int k = 1; k <= N+1; k++) {
 				for (int i = 0; i < N; i++) {
 					for (int j = 0; j < N; j++) {
-						sum = 0;
 						hCount = 0;
 						for (int[] h : house) {
 							if(distance(h, i, j) < k) {
 								hCount ++;
-								sum += M;
 							}
 						}
-						if (hCount > answer && sum- price[k] >= 0) {
+						if (hCount > answer && hCount*M- price[k] >= 0) {
 							answer = hCount;
 						}
 					}
