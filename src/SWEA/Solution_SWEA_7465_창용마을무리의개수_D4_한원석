@@ -1,0 +1,50 @@
+package src;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Solution_SWEA_7465_창용마을무리의개수_D4_한원석 {
+	static int TC, N, M, a, b, answer;
+	static int[] graph;
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		StringTokenizer st;
+		TC = Integer.parseInt(br.readLine());
+		for (int testCase = 1; testCase <= TC; testCase++) {
+			st = new StringTokenizer(br.readLine());
+			N = Integer.parseInt(st.nextToken());
+			M = Integer.parseInt(st.nextToken());
+			graph = new int[N+1];
+			answer = -1;
+			for (int i = 0; i < N+1; i++) {
+				graph[i] = i;
+			}
+			for (int i = 0; i < M; i++) {
+				st = new StringTokenizer(br.readLine());
+				a = Integer.parseInt(st.nextToken());
+				b = Integer.parseInt(st.nextToken());
+				union(a,b);
+			}
+			for (int i = 0; i < N+1; i++) {
+				if(graph[i] == i) answer ++;
+			}
+			sb.append("#").append(testCase).append(" ").append(answer).append("\n");
+		}
+		System.out.println(sb.toString());
+	}
+	private static void union(int a2, int b2) {
+		int aRoot = find(a2);
+		int bRoot = find(b2);
+
+		graph[bRoot] = aRoot;
+	}
+	
+	private static int find(int a2) {
+		if(graph[a2] == a2) return a2;
+		return find(graph[a2]);
+	}
+
+}
