@@ -39,13 +39,12 @@ public class Main_BOJ_1987_알파벳_G4_한원석_776ms {
 	}
 	private static void dfs(int x, int y, int len) {
 		int ax,ay;
-		
+		if (answer == 26) return;
 		for (int i = 0; i < 4; i++) {
 			ax = x + dx[i];
 			ay = y + dy[i];
 			if(!visited[board[ax][ay]-'A']) {
 				visited[board[ax][ay]-'A'] = true;
-				answer = Math.max(answer, len+1);
 				dfs(ax,ay,len+1);
 				visited[board[ax][ay]-'A'] = false;
 			}
