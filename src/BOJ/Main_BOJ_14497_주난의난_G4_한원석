@@ -1,0 +1,59 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class Main_BOJ_14497_주난의난_G4_한원석 {
+	static String[] board;
+	static int[][] visited;
+	static int[] dx = {-1,1,0,0};
+	static int[] dy = {0,0,-1,1};
+	static int N, M, x1, y1, x2, y2;
+	static PriorityQueue<int[]> pq = new PriorityQueue<>((o1,o2) -> Integer.compare(o1[0],o2[0]));
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		st = new StringTokenizer(br.readLine());
+		x1 = Integer.parseInt(st.nextToken())-1;
+		y1 = Integer.parseInt(st.nextToken())-1;
+		x2 = Integer.parseInt(st.nextToken())-1;
+		y2 = Integer.parseInt(st.nextToken())-1;
+		board = new String[N];
+		visited = new int[N][M];
+		for (int i = 0; i < N; i++) {
+			board[i] = br.readLine();
+		}
+		pq.add(new int[] {0, x1,y1});
+		visited[x1][y1] = 1;
+		while(!pq.isEmpty()) {
+			int[] tmp = pq.poll();
+			if(tmp[1] == x2 && tmp[2] == y2) {
+
+				System.out.println(visited[x2][y2]-1);
+				return;
+			}
+			for (int i = 0; i < 4; i++) {
+				int ax = tmp[1] + dx[i];
+				int ay = tmp[2] + dy[i];
+				if(ax < 0 || ay < 0 || ax >= N || ay >= M || visited[ax][ay] != 0) continue;
+				if (board[ax].charAt(ay) == '0') {
+					visited[ax][ay] = visited[tmp[1]][tmp[2]];
+					pq.add(new int[] { visited[tmp[1]][tmp[2]], ax, ay});
+				}
+				else {
+					visited[ax][ay] = visited[tmp[1]][tmp[2]]+1;
+					pq.add(new int[] { visited[tmp[1]][tmp[2]]+1, ax, ay});
+				}
+			}
+			
+		}
+		
+		
+	}
+}
